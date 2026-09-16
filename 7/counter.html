@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Básico com JS</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: rgba(0, 255, 255, 0.37);
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #contador{
+                font-size:6rem;
+                font-weight: bolder;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .formulario{
+                background-color: white; 
+                padding: 35px 20px;
+                border-radius: 15px;
+                box-shadow: 0px 5px 10px gray;
+            }
+            .botoes{
+                font-size: 4rem;
+                background-color: transparent;
+                border: 1px solid rgba(0,0,0,0,3);
+                border-radius: 10px;
+                color: rgb(37, 37, 37);
+            }
+        </style>
+</head>
+<body>
+    <div class="formulario">
+        <div id="contador" value="0">0</div>
+            <div class="div-botoes">
+                <button class="botoes" id="btn_diminuir">-1</button>
+                <button class="botoes" id="btn_resetar">Reset</button>
+                <button class="botoes" id="btn_acrescentar">+1</button>
+            </div>
+    </div>
+</body>
+<script>
+   let count = 0; 
+
+        const display = document.getElementById("contador");
+        const btnMenos = document.getElementById('btn_diminuir');
+        const btnMais = document.getElementById('btn_acrescentar');
+        const btnResetar = document.getElementById('btn_resetar');
+
+        btnMais.addEventListener('click', () => {
+            count++;
+            display.textContent = count;
+        });
+
+        btnMenos.addEventListener('click', () => {
+            count--;
+            display.textContent = count;
+        });
+
+        btnResetar.addEventListener('click', () => {
+            count = 0;
+            display.textContent = count;
+        });
+</script>
+</html>
