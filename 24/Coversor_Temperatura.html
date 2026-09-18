@@ -90,11 +90,11 @@
 
     if(C_F.checked){
        let display = (valor * 9/5) + 32
-       resultado.innerText = display
+       resultado.innerText = display + " Farenheit"
        resultado.style.color = "black"
     }else if(F_C.checked) {
        let display = (valor - 32) / 9/5
-       resultado.innerText = display
+       resultado.innerText = display + " Celsius"
        resultado.style.color = "black"
     }else{
      resultado.innerText = "Selecione uma opção"
