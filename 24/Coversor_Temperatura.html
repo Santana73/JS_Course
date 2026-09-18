@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura com JS</title>
+    <style>
+        h1{
+            padding: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            color: rgb(255, 38, 0);
+        }
+        body{
+            background-color: orange;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        input{
+         margin: auto;
+        }
+        #valor{
+            margin: auto;
+            text-align: center;
+            width: 40%;
+            border-radius: 100px;
+            border: 1px solid grey;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        button{
+            display: block;
+            margin: auto;
+        }
+        .form{
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px grey;
+
+        }
+        #botao{
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: transparent;
+            border: 2px solid grey;
+        }
+        span{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+  <div class="form">
+
+    <h1>Conversor de Temperatura</h1>
+
+    <input type="number" value="0" id="valor">
+    
+    <label for="C=>F">Celsius => Farenheit</label>
+    <input type="radio" id="C=>F" name="temperatura">
+
+    <label for="F=>C">Farenheit => Celsius</label>
+    <input type="radio" id="F=>C" name="temperatura">  
+
+    <button id="botao">Calcular</button>
+    <span id="resultado"></span>
+  </div>
+  <script>
+   
+   let botao = document.getElementById("botao");
+   let C_F = document.getElementById("C=>F");
+   let F_C = document.getElementById("F=>C");
+   let resultado = document.getElementById("resultado");
+
+   botao.onclick = function(){
+    let valor = document.getElementById("valor").value;
+
+    if(C_F.checked){
+       let display = (valor * 9/5) + 32
+       resultado.innerText = display
+       resultado.style.color = "black"
+    }else if(F_C.checked) {
+       let display = (valor - 32) / 9/5
+       resultado.innerText = display
+       resultado.style.color = "black"
+    }else{
+     resultado.innerText = "Selecione uma opção"
+     resultado.style.color = "red"
+    }
+   }
+
+   
+  </script>
+</body>
+</html>
