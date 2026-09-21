@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes em JS</title>
+</head>
+<body>
+    <script>
+        // Classes são formas mais limpas e organizadas de escrever constructors 
+
+        /* Sintaxe
+        
+        Palavra reservada class é usada depois e coloca o nome da class seguido de chaves {}, apos isso pode colocar
+        dentro o constructor e as funçoes utilizando sempre this para referenciar os objetos.
+
+        */
+
+        class livros{
+
+            constructor(id,nome,preco){
+                this.id = id;
+                this.nome = nome;
+                this.preco = preco;
+            }
+
+            mostrar(){
+                console.log(`O nome do livro é ${this.nome}, seu id é ${this.id} e custa $${this.preco.toFixed(2)} reais`)
+            }
+        }
+
+        const Livro1 = new livros(1,"Dom Casmurro", 19)
+        const Livro2 = new livros(2,"Harry Potter", 20)
+        const Livro3 = new livros(3,"1984",30)
+        const Livro4 = new livros(4,"Metamorfose",12)
+
+         console.log(Livro1)
+        Livro3.mostrar();
+        Livro1.mostrar();
+        Livro4.mostrar();
+    </script>
+</body>
+</html>
