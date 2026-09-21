@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Reduce em JS</title>
+</head>
+<body>
+    <script>
+        // Reduce serve para transfromar o array inteiro em um unico elemento
+
+        let idade = [13,27,29,22,30];
+
+        let maisVelho = idade.reduce(maiorIdade);
+
+        
+
+        function maiorIdade(acumulador, elemento){
+            return Math.max(acumulador, elemento);
+        };
+
+        console.log(maisVelho);
+    </script>
+</body>
+</html>
