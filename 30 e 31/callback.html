@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+
+<body>
+    <script>
+        // Callback é uma funçaõ passado como parametro em outra função, serve para garantir que a função chamada seja executada apenas quando a função principal seja realizada
+
+        function soma(a, b, minhaCallback) {
+            const resultado = a + b;
+            minhaCallback(resultado); // Executa a função passada como argumento
+        }
+
+        function exibirResultado(res) {
+            console.log("O resultado é: " + res);
+        }
+
+        soma(5, 3, exibirResultado); // Saída: O resultado é: 8
+
+    </script>
+</body>
+
+</html>
