@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter em JS</title>
+</head>
+<body>
+    <script>
+        // O metodo filter serve pra criar um novo array com elementos que passa em uma certa condição que vc escolhe 
+
+        let idades = [12,15,17,19,22];
+
+        let adultos = idades.filter(Adulto)
+
+        console.log(adultos)
+        function Adulto(element){
+         return element >= 18;
+        }
+    </script>
+</body>
+</html>
