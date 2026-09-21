@@ -1,0 +1,26 @@
+1   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor em JS</title>
+</head>
+<body>
+    <script>
+        // É uma função especial usada para definir as propiedades e valores de um objeto 
+
+        function pessoa (nome,sobrenome,idade){
+            this.nome = nome;
+            this.sobrenome = sobrenome;
+            this.idade = idade;
+            this.saudacao = function(){console.log(`Meu nome é ${this.nome}`)}
+        }
+
+        let pessoa1 = new pessoa("Daniel","Santana",18)
+
+        console.log(pessoa1.nome)
+
+        pessoa1.saudacao();
+    </script>
+</body>
+</html>
