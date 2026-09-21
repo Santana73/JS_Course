@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senha em JS</title>
+</head>
+<body>
+    <script>
+        const minusculas = "abcdefghijklmnopqrstuvwxyz";
+        const maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numeros = "1234567890";
+        const simbolos = "@#$%&*!_^`";
+
+        // Parâmetros com valores padrão garantem funcionamento caso nenhum valor seja passado
+        function Gerar_Senha(
+            tamanho = 12,
+            permissaoUpperCase = true,
+            permissaoLowerCase = true,
+            permissaoNumeros = true,
+            permissaoSimbolos = true
+        ) {
+            let caracteres_permitidos = "";
+            let senha = "";
+
+            caracteres_permitidos += permissaoUpperCase ? maiusculas : "";
+            caracteres_permitidos += permissaoLowerCase ? minusculas : "";
+            caracteres_permitidos += permissaoNumeros ? numeros : "";
+            caracteres_permitidos += permissaoSimbolos ? simbolos : "";
+
+            if (tamanho <= 0) {
+                return 'Sua senha precisa ter pelo menos 1 caractere';
+            }
+
+            if (caracteres_permitidos.length === 0) {
+                return 'Você precisa selecionar pelo menos uma opção para gerar a senha';
+            }
+
+            // O loop roda de 0 até o número estipulado em "tamanho"
+            for (let i = 0; i < tamanho; i++) {
+                const indexAleatorio = Math.floor(Math.random() * caracteres_permitidos.length);
+                senha += caracteres_permitidos[indexAleatorio];
+            }
+
+            return senha;
+        }
+
+        const senha_final = Gerar_Senha();
+        console.log(`Sua senha é: ${senha_final}`);
+    </script>
+</body>
+</html>
