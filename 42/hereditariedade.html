@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herditariedade das Classes em JS</title>
+</head>
+<body>
+    <script>
+        // Permite que novas classes herdem as mesmas propiedades da classe pai,seu uso deixa o codigo mais legivei
+
+        class livros {
+
+            constructor(id,nome,pags,preco){
+                this.id = id;
+                this.nome = nome;
+                this.pags = pags;
+                this.preco = preco;
+            }
+
+        }
+
+        class ficcao extends livros{
+         
+            avaliacao(){
+                console.log(`A avaliacao de ${this.nome} é boa`)
+            }
+            
+        }
+
+        let ficcao1 = new ficcao(1,"Metamorfose",80,17)
+
+        console.log(ficcao1)
+        ficcao1.avaliacao()
+    </script>
+</body>
+</html>
