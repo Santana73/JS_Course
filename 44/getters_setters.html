@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getters e Setters no JS</title>
+</head>
+<body>
+    <script>
+        // São metodos especiais utilizados para fazer a validação dos parametros de uma classe
+
+        class retangulo{
+
+            constructor(largura,altura){
+                this.largura = largura;
+                this.altura = altura;
+            }
+
+            area(){
+                let area = this.altura * this.largura
+                console.log(`A area desse retangulo é ${area} cm^2`)
+            }
+
+            set largura(Newlargura){
+                if(typeof Newlargura === "number" && Newlargura>0){
+                    this._largura = Newlargura;
+                }else{
+                    console.error("A largura precisa ser um numero não nulo")
+                }
+            }
+
+            set altura(Newaltura){
+                if(typeof Newaltura === "number" && Newaltura>0){
+                    this._altura = Newaltura;
+                }else{
+                    console.error("A altura precisa ser um numero não nulo")
+                }
+            }
+
+
+            get largura (){
+                return this._largura
+            }
+
+            get altura (){
+                return this._altura
+            }
+
+        }
+
+        const retangulo1 = new retangulo(100, 2000)
+
+        
+
+        console.log(retangulo1.area())
+
+
+
+    </script>
+</body>
+</html>
