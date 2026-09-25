@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super em classes no JS</title>
+</head>
+<body>
+    <script>
+        class livros {
+
+            constructor(id){
+                this.id = id;
+            }
+
+            mostrarPreco(){
+                console.log(`Seu livro custou ${this.preco}`)
+            }
+        }
+
+        class ficcao extends livros {
+            constructor(id,nome,autor,pags){
+                super(id);
+                this.nome = nome;
+                this.autor = autor;
+                this.pags = pags;
+            }
+        }
+
+        const ficcao1 = new ficcao(1,"Metamorfose","Franz Kafka",78)
+
+        console.log(ficcao1)
+    </script>
+</body>
+</html>
