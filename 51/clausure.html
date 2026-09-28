@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clausuras em JS</title>
+</head>
+<body>
+    <script>
+     // Clausuras é quando usamos funções dentro de outra função, é utilizado na maioria dos frameworks como React, Vue e Angular, é utíl quando queremos 
+     // que as variaveis não sejam mudadas por variaveis globais, limitando o escopo das variaveis dentro das clausuras
+
+     function clausuraPontuacao(){
+        
+        let pontuacao = 0;
+
+        function aumentar(pontos){
+            pontuacao += pontos
+            console.log(`Mais ${pontos} pts`)
+        }
+
+        function diminuir(pontos){
+            pontuacao -= pontos
+            console.log(`Menos ${pontos} pts`)
+        }
+
+        function mostrarPontuacao(){
+            console.log(`Sua pontuação atual é ${pontuacao} pts`)
+        }
+
+        return{aumentar,diminuir,mostrarPontuacao}
+     }
+
+     const jogo = clausuraPontuacao();
+
+     jogo.aumentar(5);
+     jogo.aumentar(10);
+     jogo.diminuir(7);
+     jogo.mostrarPontuacao();
+
+
+    </script>
+</body>
+</html>
