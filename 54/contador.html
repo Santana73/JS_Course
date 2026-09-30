@@ -75,28 +75,34 @@
             <div id="display">00:00:00</div>
         
         <div id="btns">
-            <button class="btn" id="btn-start">Start</button>
-            <button class="btn" id="btn-stop">Stop</button>
-            <button class="btn" id="btn-reset">Reset</button>
+            <button class="btn" id="btn-start" onclick="startTimer()">Start</button>
+            <button class="btn" id="btn-stop" onclick="stopTimer()">Stop</button>
+            <button class="btn" id="btn-reset" onclick="resetTimer()">Reset</button>
         </div>
 
         </div>
 
         <script>
 
-            const display = document.getElementById("display");
+            const Display = document.getElementById("display");
 
-            const start = document.getElementById("btn-start");
-            const stop = document.getElementById("btn-stop");
-            const reset = document.getElementById("btn-reset");
 
             let isRunning = false;
-            let startTime = null;
+            let display = null;
+            let startTime = 0;
             let tempoPassado = 0;
             let agora = Date.now();
 
 
             function startTimer(){
+
+                if(!isRunning){
+
+                    startTime = Date.now() - tempoPassado;
+                    setInterval(updateTimer, 10)
+                    isRunning = true;
+
+                }
 
             }
 
@@ -110,6 +116,16 @@
 
             function updateTimer(){
 
+                const currentTime = Date.now();
+
+                tempoPassado = currentTime - startTime;
+
+                let horas = Math.floor(tempoPassado/ 1000 *60 * 60)
+                let minutos = Math.floor(tempoPassado / (1000 *60) % 60)
+                let segundos = Math.floor(tempoPassado / 1000) % 60
+                let milisegundos = Math.floor(tempoPassado / 1000 / 10) 
+
+                Display.innerText = `${horas}:${minutos}:${segundos}$:{milisegundos}`
             }
 
 
