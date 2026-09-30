@@ -1,134 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador em JS</title>
 </head>
-    <style>
-        body{
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           height: 100vh;
-           font-family: monospace;
-        }
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: monospace;
+    }
 
-        #timer-form{
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 5px solid rgba(0,0,0,0.3);
-        }
+    #timer-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 5px solid rgba(0, 0, 0, 0.3);
+    }
 
-        #display{
-            font-size: 4.5rem;
-        }
-        h1{
-            font-size: 3rem;
-        }
+    #display {
+        font-size: 4.5rem;
+    }
 
-        .btn{
-            font-size: 1.5rem;
-            flex-direction: row;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 7px;
-            color: aliceblue;
-            transition: box-shadow 0.2s;
-        }
+    h1 {
+        font-size: 3rem;
+    }
 
-        .btn:hover{
-            box-shadow: 0px 0px 5px hsl(0, 0%, 60%);
-        }
+    .btn {
+        font-size: 1.5rem;
+        flex-direction: row;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 7px;
+        color: aliceblue;
+        transition: box-shadow 0.2s;
+    }
 
-        #btns{
-           margin-top: 20px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           gap: 10px;
-        }
+    .btn:hover {
+        box-shadow: 0px 0px 5px hsl(0, 0%, 60%);
+    }
 
-        #btn-start{
-            background-color: green;
-        }
+    #btns {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
 
-        #btn-stop{
-            background-color: red;
-        }
+    #btn-start {
+        background-color: green;
+    }
 
-        #btn-reset{
-            background-color: blue;
-        }
+    #btn-stop {
+        background-color: red;
+    }
 
-        
+    #btn-reset {
+        background-color: blue;
+    }
+</style>
 
-    </style>
+<body>
+    <h1>Timer</h1>
 
-    <body>
-        <h1>Timer</h1>
+    <div id="timer-form">
 
-        <div id="timer-form">
+        <div id="display">00:00:00:00</div>
 
-            <div id="display">00:00:00</div>
-        
         <div id="btns">
             <button class="btn" id="btn-start" onclick="startTimer()">Start</button>
             <button class="btn" id="btn-stop" onclick="stopTimer()">Stop</button>
             <button class="btn" id="btn-reset" onclick="resetTimer()">Reset</button>
         </div>
 
-        </div>
+    </div>
 
-        <script>
+    <script>
 
-            const Display = document.getElementById("display");
-
-
-            let isRunning = false;
-            let display = null;
-            let startTime = 0;
-            let tempoPassado = 0;
-            let agora = Date.now();
+        const Display = document.getElementById("display");
 
 
-            function startTimer(){
+        let isRunning = false;
+        display = null;
+        let startTime = 0;
+        let tempoPassado = 0;
 
-                if(!isRunning){
 
-                    startTime = Date.now() - tempoPassado;
-                    setInterval(updateTimer, 10)
-                    isRunning = true;
 
-                }
+        function startTimer() {
+
+            if(!isRunning) {
+                startTime = Date.now() - tempoPassado;
+                timer = setInterval(updateTimer, 10)
+                isRunning = true;
 
             }
 
-            function stopTimer(){
+        }
+
+        function stopTimer() {
+            if(isRunning) {
+                clearInterval(timer);
+                tempoPassado = Date.now() - startTime;
+                isRunning = false;
 
             }
+        }
 
-            function resetTimer(){
+        function resetTimer() {
 
-            }
+            display = null;
+            startTime = 0;
+            tempoPassado = 0;
+            isRunning = false;
 
-            function updateTimer(){
+            Display.innerText = '00:00:00:00'
+        }
 
-                const currentTime = Date.now();
+        function updateTimer() {
 
-                tempoPassado = currentTime - startTime;
+            const currentTime = Date.now();
 
-                let horas = Math.floor(tempoPassado/ 1000 *60 * 60)
-                let minutos = Math.floor(tempoPassado / (1000 *60) % 60)
-                let segundos = Math.floor(tempoPassado / 1000) % 60
-                let milisegundos = Math.floor(tempoPassado / 1000 / 10) 
+            tempoPassado = currentTime - startTime;
 
-                Display.innerText = `${horas}:${minutos}:${segundos}$:{milisegundos}`
-            }
+            let horas = Math.floor(tempoPassado / (1000 * 60 * 60))
+            let minutos = Math.floor(tempoPassado / (1000 * 60) % 60)
+            let segundos = Math.floor(tempoPassado / 1000 % 60)
+            let milisegundos = Math.floor(tempoPassado % 1000 / 10)
+
+            horas = String(horas).padStart(2, "0");
+            minutos = String(minutos).padStart(2, "0");
+            segundos = String(segundos).padStart(2, "0")
+            milisegundos = String(milisegundos).padStart(2, "0")
+
+            Display.innerText = `${horas}:${minutos}:${segundos}:${milisegundos}`
+        }
 
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
