@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Classes em JS</title>
+
+<style>
+    body{
+        font-family: monospace;
+    }
+    .n-inscrito{
+        background-color: red;
+        border:1px solid red ;
+        color: white;
+        padding: 10px 15px;
+        font-size: 1.5rem;
+        border-radius: 7px;
+    }
+    .inscrito{
+        background-color: whitesmoke;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        color: black;
+        padding: 10px 15px;
+        font-size: 1.5rem;
+        border-radius: 7px;
+    }
+</style>
+</head>
+<body>
+    <button class="n-inscrito" id="btn">Inscreva-se</button>
+    <script>
+        const botao = document.getElementById('btn')
+
+        botao.addEventListener('click', function Inscrevase(){
+
+            if(botao.classList.contains('inscrito')){
+                botao.classList.replace('inscrito', 'n-inscrito')
+                botao.innerText = 'Inscreva-se'
+            }else{
+                botao.classList.replace('n-inscrito', 'inscrito')
+                botao.innerText = 'Desinscreva-se'
+            }
+            
+        })
+    </script>
+</body>
+</html>
