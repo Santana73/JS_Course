@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar em elemento em JS</title>
+    <style>
+        .caixa{
+            border: 1px solid black;
+            padding: 30px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa" id="caixa1">
+        <span>1</span>
+    </div>
+        <div class="caixa">
+        <span>2</span>
+    </div>
+    <div class="caixa">
+        <span>3</span>
+    </div>
+        <div class="caixa">
+        <span>4</span>
+    </div>
+
+    <ul>
+        <li>Maça</li>
+        <li>Banana</li>
+        <li>Laranja</li>
+    </ul>
+    <script>
+        const h1 = document.createElement('h1')
+
+        h1.style.textAlign = 'center'
+        h1.innerText = 'Titulo'
+
+        let caixa1 = document.getElementById('caixa1')
+
+        caixa1.append(h1)
+
+        const novaFruta1 = document.createElement('li')
+
+        novaFruta1.innerText = 'Melão'
+        novaFruta1.style.backgroundColor = 'Yellow'
+
+        const novaFruta2 = document.createElement('li')
+
+        novaFruta2.innerText = 'Melancia'
+        novaFruta2.style.backgroundColor = 'red'
+
+        const lista = document.querySelector('ul')
+
+        lista.prepend(novaFruta1)
+        lista.insertBefore(novaFruta2, novaFruta1)
+
+
+
+        
+
+    </script>
+</body>
+</html>
