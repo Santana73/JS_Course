@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddEventListener em JS</title>
+</head>
+<body>
+    <button id="btn">Clique Aqui</button>
+    <script>
+        
+        let botao = document.getElementById('btn')
+
+        botao.addEventListener('click', function clique(event){
+            event.target.textContent = 'Vc clicou aqui'
+        });
+
+        botao.addEventListener('mouseover',function mouseover (event){
+            event.target.textContent = 'Vc passsou o mouse aqui'
+        })
+        botao.addEventListener('mouseout',function mouseout (event){
+            event.target.textContent = 'Clique Aqui'
+        })  
+
+    </script>
+</body>
+</html>
