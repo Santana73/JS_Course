@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora em JS</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: monospace;
+      }
+      #calculadora {
+        background-color: hsl(0, 0%, 30%);
+        padding: 10px;
+        border-radius: 7px;
+      }
+      #buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 10px;
+      }
+      .btn-orange {
+        background-color: orange;
+        border-radius: 100%;
+        margin: 3px;
+        font-size: 1.5rem;
+      }
+
+      .btns {
+        background-color: hsl(0, 0%, 50%);
+        border-radius: 100%;
+        margin: 3px;
+        font-size: 1.5rem;
+      }
+      #display {
+        background-color: hsl(0, 0%, 50%);
+        text-align: end;
+        padding: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculadora">
+      <input readonly id="display" value="" />
+      <div id="buttons">
+        <div onclick="AdicionarAoDiplay('+')" class="btn-orange">+</div>
+        <div onclick="AdicionarAoDiplay('1')" class="btns">1</div>
+        <div onclick="AdicionarAoDiplay('2')" class="btns">2</div>
+        <div onclick="AdicionarAoDiplay('3')" class="btns">3</div>
+        <div onclick="AdicionarAoDiplay('-')" class="btn-orange">-</div>
+        <div onclick="AdicionarAoDiplay('4')" class="btns">4</div>
+        <div onclick="AdicionarAoDiplay('5')" class="btns">5</div>
+        <div onclick="AdicionarAoDiplay('6')" class="btns">6</div>
+        <div onclick="AdicionarAoDiplay('*')" class="btn-orange">*</div>
+        <div onclick="AdicionarAoDiplay('7')" class="btns">7</div>
+        <div onclick="AdicionarAoDiplay('8')" class="btns">8</div>
+        <div onclick="AdicionarAoDiplay('9')" class="btns">9</div>
+        <div onclick="AdicionarAoDiplay('/')" class="btn-orange">/</div>
+        <div onclick="AdicionarAoDiplay('0')" class="btns">0</div>
+        <div onclick="AdicionarAoDiplay('.')" class="btns">.</div>
+        <div onclick="Calcular()" class="btns">=</div>
+        <div onclick="ClearBtn()" class="btn-orange">C</div>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+
+      function Calcular() {
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = "Erro";
+        }
+      }
+      function AdicionarAoDiplay(botao) {
+        display.value += botao;
+      }
+      function ClearBtn() {
+        display.value = "";
+      }
+    </script>
+  </body>
+</html>
