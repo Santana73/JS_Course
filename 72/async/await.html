@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises em JS</title>
+  </head>
+  <body>
+    <script>
+
+      function dia() {
+        return new Promise((resolve, reject) => {
+          setTimeout(function () {
+            let manha = true;
+            if (manha) {
+              resolve("Bom dia!");
+            } else {
+              reject("Não está de manhã");
+            }
+          }, 3000);
+        });
+      }
+
+      function tarde() {
+        return new Promise((resolve, reject) => {
+          setTimeout(function () {
+            let tarde = true;
+            if (tarde) {
+              resolve("Bom tarde!");
+            } else {
+              reject("Não está de tarde");
+            }
+          }, 1000);
+        });
+      }
+
+      function noite() {
+        return new Promise((resolve, reject) => {
+          setTimeout(function () {
+            let noite = true;
+            if (noite) {
+              resolve("Boa noite!");
+            } else {
+              reject("Não está de noite");
+            }
+          }, 1000);
+        });
+      }
+
+      async function listatarefas(){
+
+        try{
+        const diaresultado = await dia();
+        console.log(diaresultado)
+
+        const tarderesultado = await tarde();
+        console.log(tarderesultado)
+
+        const noiteresultado = await noite();
+        console.log(noiteresultado)
+
+        console.log('O dia passou')
+        }catch(error){
+            console.error(error)
+        }
+      
+      }
+
+      listatarefas()
+
+
+    </script>
+  </body>
+</html>
