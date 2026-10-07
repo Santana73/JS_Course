@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo Pedra-papel-tesoura em JS</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: monospace;
+      }
+
+      button {
+        font-size: 2.5rem;
+        padding: 10px;
+        border-radius: 100px;
+        border: none;
+        background-color: hsla(0, 0%, 50%, 0.692);
+      }
+
+      #escolhas {
+        padding: 0%;
+        margin: 0%;
+        margin-top: 20px;
+        font-size: 1.3rem;
+        display: flex;
+        flex-direction: column;
+      }
+      #pontuacoes {
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+
+      #btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .option:hover {
+        box-shadow: 0px 0px 30px hsl(0, 0%, 80%);
+      }
+      h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main {
+        border: 1px solid gray;
+        padding: 40px 60px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 30px hsl(0, 0%, 70%);
+      }
+
+      #resultado {
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Pedra-Papel-Tesoura</h1>
+
+      <div id="btns">
+        <button class="option" id="papel" onclick="escolhaJogador('Papel')">
+          ✋
+        </button>
+        <button class="option" id="tesoura" onclick="escolhaJogador('Tesoura')">
+          ✌️
+        </button>
+        <button class="option" id="pedra" onclick="escolhaJogador('Pedra')">
+          ✊
+        </button>
+      </div>
+
+      <div id="escolhas">
+        <div id="escolha-jogador">Jogador:</div>
+        <div id="escolha-maquina">Computador:</div>
+      </div>
+
+      <div id="resultado"></div>
+
+      <div id="pontuacoes">
+        <span style="color: green" id="win-msg">Vc ganhou X vezes</span>
+        <span style="color: red" id="lose-msg">Vc perdeu Y vezes</span>
+      </div>
+    </main>
+    <script>
+      const displaywin = document.getElementById("win-msg");
+      const displaylose = document.getElementById("lose-msg");
+      const escolha_jogador = document.getElementById("escolha-jogador");
+      const resultado = document.getElementById("resultado");
+      const escolha_maquina = document.getElementById("escolha-maquina");
+
+      let escolhascomputador = ["Papel", "Tesoura", "Pedra"];
+      let scorelose = 0;
+      let winscore = 0;
+
+      console.log(randomcomputador);
+
+      function escolhaJogador(escolha) {
+        let randomcomputador =
+          escolhascomputador[Math.floor(Math.random() * 3)];
+
+        escolha_jogador.innerText = `Jogador: ${escolha}`;
+        escolha_maquina.innerText = `Computador: ${randomcomputador}`;
+
+        if (escolha == randomcomputador) {
+          resultado.innerText = "Você Empatou";
+          resultado.style.color = "gray";
+        }
+        switch (escolha) {
+          case "Papel":
+            if (randomcomputador == "Tesoura") {
+              resultado.innerText = "Você Perdeu";
+              resultado.style.color = "red";
+              scorelose++;
+            } else if (randomcomputador == "Pedra") {
+              resultado.innerText = "Você Ganhou";
+              resultado.style.color = "green";
+              winscore++;
+            }
+            break;
+
+          case "Pedra":
+            if (randomcomputador == "Papel") {
+              resultado.innerText = "Você Perdeu";
+              resultado.style.color = "red";
+              scorelose++;
+            } else if (randomcomputador == "Tesoura") {
+              resultado.innerText = "Você Ganhou";
+              resultado.style.color = "green";
+              winscore++;
+            }
+            break;
+
+          case "Tesoura":
+            if (randomcomputador == "Pedra") {
+              resultado.innerText = "Você Perdeu";
+              resultado.style.color = "red";
+              scorelose++;
+            } else if (randomcomputador == "Papel") {
+              resultado.innerText = "Você Ganhou";
+              resultado.style.color = "green";
+              winscore++;
+            }
+            break;
+        }
+
+        displaywin.innerHTML = `Vc ganhou ${winscore} vezes`;
+        displaylose.innerHTML = `Vc perdeu ${scorelose} vezes`;
+      }
+    </script>
+  </body>
+</html>
