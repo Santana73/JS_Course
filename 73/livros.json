@@ -1,0 +1,18 @@
+[
+       {
+       "id": 1,
+       "nome": "Dom Casmurro",
+       "pags": 85
+       },
+       {
+       "id": 2,
+       "nome": "Metamorfose",
+       "pags": 72
+       }, 
+       {
+       "id": 3,
+       "nome": "Harry Potter",
+       "pags": 200
+       }
+
+]
